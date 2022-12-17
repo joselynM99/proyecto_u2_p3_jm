@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+</head>
+
+<body>
+    <header></header>
+    <nav></nav>
+    <section>
+        <div id="myApp2">
+
+            <label>Frase nueva: {{fraseNueva}}</label>
+            <br> 
+            <input type="text" v-model="fraseNueva" v-on:keypress.enter="agregarFraseModificador"> <!--modificadores de eventos(.enter)-->
+            <hr>
+            <h1>Frases: </h1>
+            <ul>
+                <li v-for="({texto, autor}, index) in arreglo">
+                    <span> Frase: {{index+1}} - {{texto}}</span>
+                    <!--<blockquote v-if="autor !== undefined"> Autor: {{autor}}</blockquote>-->
+                    <blockquote v-show="autor !== undefined"> Autor: {{autor}}</blockquote>
+                    <!--cuando se usa el v-show solo oculta, con el v-if no lo construye-->
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+    <footer></footer>
+    <script src="../js/configuracion2.js"></script>
+</body>
+
+</html>
