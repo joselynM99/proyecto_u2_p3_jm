@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+</head>
+
+<body>
+    <header></header>
+    <nav></nav>
+    <section>
+        <div id="myAppEstudiente">
+
+            <label>Ingrese Estudiante: {{estudianteNombre}} {{estudianteApellido}}</label>
+            <br> 
+            <label>Nombre:</label>
+            <input type="text" v-model="estudianteNombre"> 
+            <label>Apellido:</label>
+            <input type="text" v-model="estudianteApellido">
+            <label>Dirección:</label>
+            <input type="text" v-model="estudianteDireccion">
+            <br>
+            <br>
+            <button v-on:click="agregarEstudiante">Agregar</button>
+            <hr>
+            <h1>Estudiantes: </h1>
+            <ul>
+                <li v-for="({nombre, apellido, direccion}, index) in arreglo">
+                    <span> Estidiente: {{index+1}} - {{nombre}} {{apellido}}</span>
+                   
+                    <blockquote v-show="direccion !== undefined"> Direccion: {{direccion}}</blockquote>
+                    <!--cuando se usa el v-show solo oculta, con el v-if no lo construye-->
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+    <footer></footer>
+    <script src="../js/configuracionEstudiente.js"></script>
+</body>
+
+</html>
